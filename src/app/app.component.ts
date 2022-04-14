@@ -19,4 +19,7 @@ export class AppComponent {
       this.model.items.push(new TodoItem(newItem, false));
     }
   }
+  setDone(item: TodoItem) {
+    item.done = true;
+  }
 }

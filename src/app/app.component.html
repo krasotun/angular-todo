@@ -16,11 +16,5 @@
   <div class="todo__block_action">
     {{item.action}}
   </div>
-  <div class='todo__block_checkbox'>
-    <input type="checkbox" [(ngModel)]="item.done" />
-  </div>
-  <div class="todo__block_status">
-    <span *ngIf="item.done">Yes</span>
-    <span *ngIf="!item.done">No</span>
-  </div>
+  <button (click)="setDone(item)">Done</button>
 </div>
