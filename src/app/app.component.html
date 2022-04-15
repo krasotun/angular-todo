@@ -9,12 +9,5 @@
 </div>
 
 <!-- Третий компонент - блок To-Do -->
-<div *ngFor="let item of getTodoItems(); let i = index" class='todo__block'>
-  <div class="todo__block_number">
-    {{i+1}}
-  </div>
-  <div class="todo__block_action">
-    {{item.action}}
-  </div>
-  <button (click)="setDone(item)">Done</button>
-</div>
+<app-todo-item *ngFor="let todoItem of getTodoItems(); let i = index" [idx]="i+1" [item]="todoItem" class="todo__block">
+</app-todo-item>
