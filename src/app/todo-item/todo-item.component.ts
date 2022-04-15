@@ -1,25 +1,17 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { TodoItem } from '../model';
+import { Component, Input } from '@angular/core';
+import { TodoItem } from '../scripts/TodoItem';
 
 @Component({
   selector: 'app-todo-item',
   templateUrl: './todo-item.component.html',
   styleUrls: ['./todo-item.component.scss'],
 })
-export class TodoItemComponent implements OnInit, OnDestroy {
+export class TodoItemComponent {
   @Input()
   item!: TodoItem;
   @Input()
   idx!: number;
-
-  constructor() {}
-  ngOnInit(): void {
-    console.log('Created', this.item);
-  }
-  ngOnDestroy(): void {
-    console.log('Destroyed', this.item);
-  }
   setDone() {
-    this.item.done = true;
+    this.item.isDone = true;
   }
 }

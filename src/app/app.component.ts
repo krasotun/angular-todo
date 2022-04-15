@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Model, TodoItem } from './model';
+import { Data } from './data/data';
+import { TodoItem } from './scripts/TodoItem';
 
 @Component({
   selector: 'todo-app',
@@ -7,19 +8,17 @@ import { Model, TodoItem } from './model';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  model = new Model();
-  getName() {
-    return this.model.user;
+  data = new Data();
+  getUserName() {
+    return this.data.userName;
   }
   getTodoItems() {
-    return this.model.items.filter((item) => !item.done);
-  }
-  addItem(newItem: string) {
-    if (newItem != '') {
-      this.model.items.push(new TodoItem(newItem, false));
-    }
+    return this.data.items.filter((item) => !item.isDone);
   }
   setDone(item: TodoItem) {
-    item.done = true;
+    item.isDone = true;
+  }
+  addItem(item: TodoItem) {
+    this.data.items.push(item);
   }
 }

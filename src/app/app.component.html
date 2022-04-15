@@ -1,12 +1,8 @@
 <!-- Первый компонент - заголовок -->
-<h1 class="page__title">{{getName()}}'s To-Do List</h1>
+<h1 class="page__title">{{getUserName()}}'s To-Do List</h1>
 
 <!-- Второй компонент - поле с кнопкой -->
-<div class="input-form form">
-  <input class="input-form__input" #todoText />
-  <button (click)="addItem(todoText.value)">Add
-  </button>
-</div>
+<app-input-form (newItem)="addItem($event)"></app-input-form>
 
 <!-- Третий компонент - блок To-Do -->
 <app-todo-item *ngFor="let todoItem of getTodoItems(); let i = index" [idx]="i+1" [item]="todoItem" class="todo__block">
